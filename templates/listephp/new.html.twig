@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Listephp{% endblock %}
+
+{% block body %}
+    <h1>Create new Listephp</h1>
+
+    {{ include('listephp/_form.html.twig') }}
+
+    <a href="{{ path('listephp_index') }}">back to list</a>
+{% endblock %}
