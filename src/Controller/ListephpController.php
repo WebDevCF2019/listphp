@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/listephp")
+ * @Route("/admin/listephp")
  */
 class ListephpController extends AbstractController
 {

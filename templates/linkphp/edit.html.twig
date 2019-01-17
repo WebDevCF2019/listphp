@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Linkphp{% endblock %}
+
+{% block body %}
+    <h1>Edit Linkphp</h1>
+
+    {{ include('linkphp/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('linkphp_index') }}">back to list</a>
+
+    {{ include('linkphp/_delete_form.html.twig') }}
+{% endblock %}
