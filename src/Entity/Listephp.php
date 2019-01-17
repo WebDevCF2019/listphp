@@ -82,6 +82,7 @@ class Listephp
     public function __construct()
     {
         $this->linkphplinkphp = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->thedate = new \DateTime("now", new \DateTimeZone('Europe/Paris'));
     }
 
     public function getIdlistephp(): ?int

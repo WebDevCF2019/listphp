@@ -2,11 +2,27 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>{% block title %}Listephp.webdev-cf2m.be | {% endblock %}</title>
+        {% block stylesheets %}
+            <link href="https://blackrockdigital.github.io/startbootstrap-scrolling-nav/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+            <link href="https://blackrockdigital.github.io/startbootstrap-scrolling-nav/css/scrolling-nav.css" rel="stylesheet">
+        {% endblock %}
     </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+    <body id="page-top">
+    {% block body %}
+
+    {% endblock %}
+        {% block javascripts %}
+            <!-- Bootstrap core JavaScript -->
+            <script src="https://blackrockdigital.github.io/startbootstrap-scrolling-nav/vendor/jquery/jquery.min.js"></script>
+            <script src="https://blackrockdigital.github.io/startbootstrap-scrolling-nav/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+            <!-- Plugin JavaScript -->
+            <script src="https://blackrockdigital.github.io/startbootstrap-scrolling-nav/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+            <!-- Custom JavaScript for this theme -->
+            <script src="https://blackrockdigital.github.io/startbootstrap-scrolling-nav/js/scrolling-nav.js"></script>
+        {% endblock %}
     </body>
 </html>
