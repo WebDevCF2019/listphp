@@ -49,5 +49,58 @@ class Userlist
      */
     private $themail;
 
+    public function getIduserlist(): ?int
+    {
+        return $this->iduserlist;
+    }
+
+    public function getThelogin(): ?string
+    {
+        return $this->thelogin;
+    }
+
+    public function setThelogin(string $thelogin): self
+    {
+        $this->thelogin = $thelogin;
+
+        return $this;
+    }
+
+    public function getThepwd(): ?string
+    {
+        return $this->thepwd;
+    }
+
+    public function setThepwd(string $thepwd): self
+    {
+        $this->thepwd = $thepwd;
+
+        return $this;
+    }
+
+    public function getThename(): ?string
+    {
+        return $this->thename;
+    }
+
+    public function setThename(string $thename): self
+    {
+        $this->thename = $thename;
+
+        return $this;
+    }
+
+    public function getThemail(): ?string
+    {
+        return $this->themail;
+    }
+
+    public function setThemail(string $themail): self
+    {
+        $this->themail = $themail;
+
+        return $this;
+    }
+
 
 }
