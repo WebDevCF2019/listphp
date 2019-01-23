@@ -1,5 +1,5 @@
 {% extends 'mytemplate.html.twig' %}
-
+{% block title %}Listephp.webdev-cf2m.be | Administration{% endblock %}
 {% block menudroite %}
     <li class="nav-item">
         <a class="nav-link js-scroll-trigger" href="#contenu">contenu</a>
@@ -8,5 +8,6 @@
         <a class="nav-link js-scroll-trigger" href="{{  path('app_logout') }}">Déconnexion</a>
     </li>
 {% endblock %}
+{% block titre %}Administration{% endblock %}
 {% block contenu %}{% endblock %}
 
