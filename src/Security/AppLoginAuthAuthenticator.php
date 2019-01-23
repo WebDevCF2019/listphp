@@ -74,8 +74,10 @@ class AppLoginAuthAuthenticator extends AbstractFormLoginAuthenticator
     public function checkCredentials($credentials, UserInterface $user)
     {
         // Check the user's password or other credentials and return true or false
-        // If there are no credentials to check, you can just return true
-        return ($user->getPassword()==$credentials['password'])?true:false;
+
+        // encode in sha256
+        $encode = hash("sha256",$credentials['password']);
+        return ($user->getPassword()==$encode)?true:false;
         throw new \Exception('TODO: check the credentials inside '.__FILE__);
     }
 
