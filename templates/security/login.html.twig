@@ -2,6 +2,11 @@
 
 {% block title %}{{ parent() }}Connexion{% endblock %}
 {% block titre %}{% endblock %}
+{% block menudroite %}
+    <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="{{  path('home') }}">Retour à l'accueil</a>
+    </li>
+{% endblock %}
 {% block contenu %}
 <form method="post">
     {% if error %}
