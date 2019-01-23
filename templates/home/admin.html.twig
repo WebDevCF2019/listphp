@@ -1,5 +1,12 @@
 {% extends 'mytemplate.html.twig' %}
 
-
+{% block menudroite %}
+    <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="#contenu">contenu</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="{{  path('app_logout') }}">Déconnexion</a>
+    </li>
+{% endblock %}
 {% block contenu %}{% endblock %}
 
