@@ -76,17 +76,17 @@ class AppLoginAuthAuthenticator extends AbstractFormLoginAuthenticator
         // Check the user's password or other credentials and return true or false
         // If there are no credentials to check, you can just return true
         return ($user->getPassword()==$credentials['password'])?true:false;
-        //throw new \Exception('TODO: check the credentials inside '.__FILE__);
+        throw new \Exception('TODO: check the credentials inside '.__FILE__);
     }
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey)
     {
-        if ($targetPath = $this->getTargetPath($request->getSession(), $providerKey)) {
-         //   return new RedirectResponse($targetPath);
-        }
+        //if ($targetPath = $this->getTargetPath($request->getSession(), $providerKey)) {
+
+        //}
         return new RedirectResponse($this->router->generate('admin'));
         // For example : return new RedirectResponse($this->router->generate('some_route'));
-       // throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
+       throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
     }
 
     protected function getLoginUrl()

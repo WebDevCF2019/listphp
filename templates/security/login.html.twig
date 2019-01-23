@@ -1,14 +1,14 @@
-{% extends 'base.html.twig' %}
+{% extends 'mytemplate.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
-
-{% block body %}
+{% block title %}{{ parent() }}Connexion{% endblock %}
+{% block titre %}{% endblock %}
+{% block contenu %}
 <form method="post">
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <h1 class="h3 mb-3 font-weight-normal">Merci de vous connecter</h1>
     <label for="inputThelogin" class="sr-only">Thelogin</label>
     <input type="text" value="{{ last_username }}" name="thelogin" id="inputThelogin" class="form-control" placeholder="Thelogin" required autofocus>
     <label for="inputPassword" class="sr-only">Password</label>
