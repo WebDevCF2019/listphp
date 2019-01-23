@@ -82,9 +82,9 @@ class AppLoginAuthAuthenticator extends AbstractFormLoginAuthenticator
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey)
     {
         if ($targetPath = $this->getTargetPath($request->getSession(), $providerKey)) {
-            return new RedirectResponse($targetPath);
+         //   return new RedirectResponse($targetPath);
         }
-        return $this->router->generate('admin');
+        return new RedirectResponse($this->router->generate('admin'));
         // For example : return new RedirectResponse($this->router->generate('some_route'));
        // throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
     }
