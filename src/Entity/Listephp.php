@@ -175,5 +175,9 @@ class Listephp
 
         return $this;
     }
+    public function __toString()
+    {
+        return $this->getThetitle();
+    }
 
 }
