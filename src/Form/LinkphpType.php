@@ -20,7 +20,6 @@ class LinkphpType extends AbstractType
             ->add('thetitle',TextType::class,['attr' => ['class' => 'form-control']])
             ->add('thedesc',TextareaType::class,['attr' => ['class' => 'form-control']])
             ->add('theurl',UrlType::class,['attr' => ['class' => 'form-control']])
-            ->add('listephplistephp',EntityType::class,['class' => Listephp::class,'choice_label' => 'thetitle','expanded' => true,'multiple'=>true])
         ;
     }
 
