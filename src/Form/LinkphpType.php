@@ -3,7 +3,10 @@
 namespace App\Form;
 
 use App\Entity\Linkphp;
+use App\Entity\Listephp;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -16,8 +19,8 @@ class LinkphpType extends AbstractType
         $builder
             ->add('thetitle',TextType::class,['attr' => ['class' => 'form-control']])
             ->add('thedesc',TextareaType::class,['attr' => ['class' => 'form-control']])
-            ->add('theurl',TextType::class,['attr' => ['class' => 'form-control']])
-            ->add('listephplistephp')
+            ->add('theurl',UrlType::class,['attr' => ['class' => 'form-control']])
+            ->add('listephplistephp',EntityType::class,['class' => Listephp::class,'choice_label' => 'thetitle','expanded' => true,'multiple'=>true])
         ;
     }
 

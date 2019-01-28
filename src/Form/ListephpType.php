@@ -2,7 +2,10 @@
 
 namespace App\Form;
 
+use App\Entity\Linkphp;
 use App\Entity\Listephp;
+use App\Entity\Userlist;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -19,8 +22,8 @@ class ListephpType extends AbstractType
             ->add('thedesc',TextType::class,['attr' => ['class' => 'form-control']])
             ->add('thetext',TextareaType::class,['attr' => ['class' => 'form-control']])
             ->add('thedate',DateTimeType::class,['attr' => ['class' => 'form-control']])
-            ->add('userlistuserlist')
-            ->add('linkphplinkphp')
+            ->add('userlistuserlist',EntityType::class,['class' => Userlist::class,'choice_label' => 'thelogin'])
+            ->add('linkphplinkphp',EntityType::class,['class'=>Linkphp::class,'choice_label' => 'thetitle','expanded' => true,'multiple'=>true])
         ;
     }
 
