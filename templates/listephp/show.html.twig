@@ -22,31 +22,31 @@
     <table class="table">
         <tbody>
             <tr>
-                <th>Idlistephp</th>
+                <th>Id</th>
                 <td>{{ listephp.idlistephp }}</td>
             </tr>
             <tr>
-                <th>Thetitle</th>
+                <th>Titre</th>
                 <td>{{ listephp.thetitle }}</td>
             </tr>
             <tr>
-                <th>Thedesc</th>
+                <th>Description</th>
                 <td>{{ listephp.thedesc }}</td>
             </tr>
             <tr>
-                <th>Thetext</th>
+                <th>Texte</th>
                 <td>{{ listephp.thetext }}</td>
             </tr>
             <tr>
-                <th>Thedate</th>
+                <th>Date</th>
                 <td>{{ listephp.thedate ? listephp.thedate|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('listephp_index') }}">back to list</a>
-
-    <a href="{{ path('listephp_edit', {'idlistephp': listephp.idlistephp}) }}">edit</a>
+    <a href="{{ path('listephp_index') }}">Retour à l'accueil</a>
+    |
+    <a href="{{ path('listephp_edit', {'idlistephp': listephp.idlistephp}) }}">Modifier</a>
 
     {{ include('listephp/_delete_form.html.twig') }}
 {% endblock %}
