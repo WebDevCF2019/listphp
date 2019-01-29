@@ -22,11 +22,11 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Idlinkphp</th>
-                <th>Thetitle</th>
-                <th>Thedesc</th>
-                <th>Theurl</th>
-                <th>actions</th>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>URL</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -37,17 +37,17 @@
                 <td>{{ linkphp.thedesc }}</td>
                 <td>{{ linkphp.theurl }}</td>
                 <td>
-                    <a href="{{ path('linkphp_show', {'idlinkphp': linkphp.idlinkphp}) }}">show</a>
-                    <a href="{{ path('linkphp_edit', {'idlinkphp': linkphp.idlinkphp}) }}">edit</a>
+                    <a href="{{ path('linkphp_show', {'idlinkphp': linkphp.idlinkphp}) }}">Voir</a>
+                    <a href="{{ path('linkphp_edit', {'idlinkphp': linkphp.idlinkphp}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5">Pas encore de liens</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('linkphp_new') }}">Create new</a>
+    <a href="{{ path('linkphp_new') }}">Créez un nouveau lien</a>
 {% endblock %}

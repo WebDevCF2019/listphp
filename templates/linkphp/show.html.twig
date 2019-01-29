@@ -22,27 +22,27 @@
     <table class="table">
         <tbody>
             <tr>
-                <th>Idlinkphp</th>
+                <th>Id</th>
                 <td>{{ linkphp.idlinkphp }}</td>
             </tr>
             <tr>
-                <th>Thetitle</th>
+                <th>Titre</th>
                 <td>{{ linkphp.thetitle }}</td>
             </tr>
             <tr>
-                <th>Thedesc</th>
+                <th>Description</th>
                 <td>{{ linkphp.thedesc }}</td>
             </tr>
             <tr>
-                <th>Theurl</th>
+                <th>URL</th>
                 <td>{{ linkphp.theurl }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('linkphp_index') }}">back to list</a>
-
-    <a href="{{ path('linkphp_edit', {'idlinkphp': linkphp.idlinkphp}) }}">edit</a>
+    <a href="{{ path('linkphp_index') }}">Retour à l'accueil</a>
+    |
+    <a href="{{ path('linkphp_edit', {'idlinkphp': linkphp.idlinkphp}) }}">Modifier</a>
 
     {{ include('linkphp/_delete_form.html.twig') }}
 {% endblock %}
