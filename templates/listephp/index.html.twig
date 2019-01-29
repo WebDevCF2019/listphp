@@ -1,9 +1,23 @@
-{% extends 'base.html.twig' %}
+{% extends 'mytemplate.html.twig' %}
+{% block title %}Listephp.webdev-cf2m.be | Admin - fonctions{% endblock %}
 
-{% block title %}Listephp index{% endblock %}
-
-{% block body %}
-    <h1>Listephp index</h1>
+{% block menudroite %}
+    <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="{{  path('admin') }}">Accueil Admin</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="{{  path('listephp_index') }}">fonctions PHP</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="{{  path('linkphp_index') }}">Liens sources externes</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="{{  path('app_logout') }}">Déconnexion</a>
+    </li>
+{% endblock %}
+{% block titre %}Admin - fonctions{% endblock %}
+{% block stitre %}<p class="lead">Administration des fonctions - Accueil</p>{% endblock %}
+{% block contenu %}
 
     <table class="table">
         <thead>

@@ -1,13 +1,26 @@
-{% extends 'base.html.twig' %}
+{% extends 'mytemplate.html.twig' %}
+{% block title %}Listephp.webdev-cf2m.be | Admin - Modification {{ linkphp.thetitle }}{% endblock %}
 
-{% block title %}Edit Linkphp{% endblock %}
-
-{% block body %}
-    <h1>Edit Linkphp</h1>
-
-    {{ include('linkphp/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('linkphp_index') }}">back to list</a>
+{% block menudroite %}
+    <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="{{  path('admin') }}">Accueil Admin</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="{{  path('listephp_index') }}">fonctions PHP</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="{{  path('linkphp_index') }}">Liens sources externes</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="{{  path('app_logout') }}">Déconnexion</a>
+    </li>
+{% endblock %}
+{% block titre %}Admin - Modification du lien externe{% endblock %}
+{% block stitre %}<p class="lead">{{ linkphp.thetitle }}</p>{% endblock %}
+{% block contenu %}
+    {{ include('linkphp/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+<hr>
+    <a href="{{ path('linkphp_index') }}">Retour à l'accueil</a>
 
     {{ include('linkphp/_delete_form.html.twig') }}
 {% endblock %}

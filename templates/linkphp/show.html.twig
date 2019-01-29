@@ -1,34 +1,48 @@
-{% extends 'base.html.twig' %}
+{% extends 'mytemplate.html.twig' %}
+{% block title %}Listephp.webdev-cf2m.be | Admin - Détail {{ linkphp.thetitle }}{% endblock %}
 
-{% block title %}Linkphp{% endblock %}
-
-{% block body %}
-    <h1>Linkphp</h1>
+{% block menudroite %}
+    <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="{{  path('admin') }}">Accueil Admin</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="{{  path('listephp_index') }}">fonctions PHP</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="{{  path('linkphp_index') }}">Liens sources externes</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="{{  path('app_logout') }}">Déconnexion</a>
+    </li>
+{% endblock %}
+{% block titre %}Admin - Détail du lien externe{% endblock %}
+{% block stitre %}<p class="lead">{{ linkphp.thetitle }}</p>{% endblock %}
+{% block contenu %}
 
     <table class="table">
         <tbody>
             <tr>
-                <th>Idlinkphp</th>
+                <th>Id</th>
                 <td>{{ linkphp.idlinkphp }}</td>
             </tr>
             <tr>
-                <th>Thetitle</th>
+                <th>Titre</th>
                 <td>{{ linkphp.thetitle }}</td>
             </tr>
             <tr>
-                <th>Thedesc</th>
+                <th>Description</th>
                 <td>{{ linkphp.thedesc }}</td>
             </tr>
             <tr>
-                <th>Theurl</th>
+                <th>URL</th>
                 <td>{{ linkphp.theurl }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('linkphp_index') }}">back to list</a>
-
-    <a href="{{ path('linkphp_edit', {'idlinkphp': linkphp.idlinkphp}) }}">edit</a>
+    <a href="{{ path('linkphp_index') }}">Retour à l'accueil</a>
+    |
+    <a href="{{ path('linkphp_edit', {'idlinkphp': linkphp.idlinkphp}) }}">Modifier</a>
 
     {{ include('linkphp/_delete_form.html.twig') }}
 {% endblock %}
