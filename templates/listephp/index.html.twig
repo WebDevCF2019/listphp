@@ -22,12 +22,12 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Idlistephp</th>
-                <th>Thetitle</th>
-                <th>Thedesc</th>
-                <th>Thetext</th>
-                <th>Thedate</th>
-                <th>actions</th>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Texte</th>
+                <th>Date</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -39,17 +39,17 @@
                 <td>{{ listephp.thetext }}</td>
                 <td>{{ listephp.thedate ? listephp.thedate|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('listephp_show', {'idlistephp': listephp.idlistephp}) }}">show</a>
-                    <a href="{{ path('listephp_edit', {'idlistephp': listephp.idlistephp}) }}">edit</a>
+                    <a href="{{ path('listephp_show', {'idlistephp': listephp.idlistephp}) }}">Voir</a>
+                    <a href="{{ path('listephp_edit', {'idlistephp': listephp.idlistephp}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">no records found</td>
+                <td colspan="6">Pas encore de fonctions</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('listephp_new') }}">Create new</a>
+    <a href="{{ path('listephp_new') }}">Créez une nouvelle fonction</a>
 {% endblock %}
