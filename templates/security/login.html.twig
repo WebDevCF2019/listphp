@@ -2,18 +2,20 @@
 
 {% block title %}{{ parent() }}Connexion{% endblock %}
 {% block titre %}{% endblock %}
+{% block stitre %}<h1>Connexion</h1>{% endblock %}
 {% block menudroite %}
     <li class="nav-item">
         <a class="nav-link js-scroll-trigger" href="{{  path('home') }}">Retour à l'accueil</a>
     </li>
 {% endblock %}
+
 {% block contenu %}
 <form method="post">
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Merci de vous connecter</h1>
+    <h2 class="h3 mb-3 font-weight-normal">Merci de vous connecter</h2>
     <label for="inputThelogin" class="sr-only">Thelogin</label>
     <input type="text" value="{{ last_username }}" name="thelogin" id="inputThelogin" class="form-control" placeholder="Thelogin" required autofocus>
     <label for="inputPassword" class="sr-only">Password</label>
