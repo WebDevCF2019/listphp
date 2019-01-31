@@ -1,8 +1,16 @@
 {% extends 'mytemplate.html.twig' %}
 
 {% block menudroite %}
-    <li class="nav-item">
-        <a class="nav-link js-scroll-trigger" href="#contenu">contenu</a>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdownThemes" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Liste</a>
+    <div class="dropdown-menu" aria-labelledby="dropdownThemes">
+    <a class="dropdown-item" href="#contenu">Haut de page</a>
+        {% for item in liste %}
+            <a class="dropdown-item" href="#link{{ item.idlistephp }}">{{ item.thetitle }}</a>
+        {% else %}
+            <li>Pas encore de fonctions PHP</li>
+        {% endfor %}
+    </div>
     </li>
     <li class="nav-item">
         {% if is_granted('ROLE_ADMIN') %}
@@ -14,9 +22,9 @@
 {% endblock %}
 
 {% block contenu %}
-    <hr>
     {% for item in liste %}
-        <h3 id="link{{ item.idlistephp }}" title="{{ item.thedesc }}">{{ item.thetitle }}</h3>
+        <hr id="link{{ item.idlistephp }}"><br><br>
+        <h3 title="{{ item.thedesc }}">{{ item.thetitle }}</h3>
         <p class="lead">{{ item.thedesc }}</p>
         <p>{{ item.thetext|nl2br }}</p>
         <h6>Liens externes</h6>
@@ -29,7 +37,7 @@
                 <li>Pas de liens</li>
             {% endfor %}
         </ul>
-        <hr>
+
     {% else %}
         <h3>Pas encore de fonctions</h3>
     {% endfor %}
