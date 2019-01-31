@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="l1gLkSY" resname="Thetitle">
+        <source>Thetitle</source>
+        <target>The tiltle</target>
+      </trans-unit>
+      <trans-unit id="fC9g6xt" resname="Thedesc">
+        <source>Thedesc</source>
+        <target>The description</target>
+      </trans-unit>
+      <trans-unit id="Rlc62Sa" resname="Thetext">
+        <source>Thetext</source>
+        <target>The text</target>
+      </trans-unit>
+      <trans-unit id="mLUqyyt" resname="Thedate">
+        <source>Thedate</source>
+        <target>The date</target>
+      </trans-unit>
+      <trans-unit id="iKUeg.t" resname="Userlistuserlist">
+        <source>Userlistuserlist</source>
+        <target>The author</target>
+      </trans-unit>
+      <trans-unit id="PM1JcX7" resname="Linkphplinkphp">
+        <source>Linkphplinkphp</source>
+        <target>The links</target>
+      </trans-unit>
+      <trans-unit id="nQCFiRa" resname="Theurl">
+        <source>Theurl</source>
+        <target>The URL</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
