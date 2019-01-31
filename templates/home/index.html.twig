@@ -13,5 +13,25 @@
     </li>
 {% endblock %}
 
-{% block contenu %}{% endblock %}
+{% block contenu %}
+    <hr>
+    {% for item in liste %}
+        <h3 id="link{{ item.idlistephp }}" title="{{ item.thedesc }}">{{ item.thetitle }}</h3>
+        <p class="lead">{{ item.thedesc }}</p>
+        <p>{{ item.thetext|nl2br }}</p>
+        <h6>Liens externes</h6>
+        <ul>
+            {% for link in item.Linkphplinkphp %}
+            <li>
+                <a href="{{ link.theurl }}" title="{{ link.thedesc }}" target="_blank">{{ link.thetitle }}</a>
+            </li>
+            {% else %}
+                <li>Pas de liens</li>
+            {% endfor %}
+        </ul>
+        <hr>
+    {% else %}
+        <h3>Pas encore de fonctions</h3>
+    {% endfor %}
+{% endblock %}
 

@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Listephp;
+use App\Entity\Linkphp;
 
 class HomeController extends AbstractController
 {
@@ -12,8 +14,12 @@ class HomeController extends AbstractController
      */
     public function index()
     {
+        $listephps = $this->getDoctrine()
+            ->getRepository(Listephp::class)
+            ->findAll();
+
         return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
+            'liste' => $listephps,
         ]);
     }
     /**
