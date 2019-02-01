@@ -3,12 +3,12 @@
 {% block menudroite %}
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="dropdownThemes" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Liste</a>
-    <div class="dropdown-menu" aria-labelledby="dropdownThemes">
-    <a class="dropdown-item" href="#contenu">Haut de page</a>
+    <div class="dropdown-menu scrollable-menu" aria-labelledby="dropdownThemes">
+    <a class="dropdown-item js-scroll-trigger" href="#contenu">Haut de page</a>
         {% for item in liste %}
-            <a class="dropdown-item" href="#link{{ item.idlistephp }}">{{ item.thetitle }}</a>
+            <a class="dropdown-item js-scroll-trigger" href="#link{{ item.idlistephp }}">{{ item.thetitle }}</a>
         {% else %}
-            <li>Pas encore de fonctions PHP</li>
+            Pas encore de fonctions PHP
         {% endfor %}
     </div>
     </li>
@@ -23,7 +23,7 @@
 
 {% block contenu %}
     {% for item in liste %}
-        <hr id="link{{ item.idlistephp }}"><br><br>
+        <hr id="link{{ item.idlistephp }}"><br>
         <h3 title="{{ item.thedesc }}">{{ item.thetitle }}</h3>
         <p class="lead">{{ item.thedesc }}</p>
         <p>{{ item.thetext|nl2br }}</p>
