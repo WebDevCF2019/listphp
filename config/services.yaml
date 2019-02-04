@@ -5,6 +5,10 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: 'fr_FR'
+    app.dir: '...'
+    app.contents_dir: '...'
+    app.dir.contents: '...'
+    app.contents-dir: '...'
 
 services:
     # default configuration for services in *this* file
