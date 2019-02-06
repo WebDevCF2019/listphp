@@ -18,14 +18,13 @@
 {% block titre %}Admin - fonctions{% endblock %}
 {% block stitre %}<p class="lead">Administration des fonctions - Accueil</p>{% endblock %}
 {% block contenu %}
-
+    <a href="{{ path('listephp_new') }}">Créez une nouvelle fonction</a>
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Titre</th>
                 <th>Description</th>
-                <th>Texte</th>
                 <th>Date</th>
                 <th>Actions</th>
             </tr>
@@ -36,7 +35,6 @@
                 <td>{{ listephp.idlistephp }}</td>
                 <td>{{ listephp.thetitle }}</td>
                 <td>{{ listephp.thedesc }}</td>
-                <td>{{ listephp.thetext }}</td>
                 <td>{{ listephp.thedate ? listephp.thedate|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
                     <a href="{{ path('listephp_show', {'idlistephp': listephp.idlistephp}) }}">Voir</a>
