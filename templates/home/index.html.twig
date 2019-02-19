@@ -12,13 +12,7 @@
         {% endfor %}
     </div>
     </li>
-    <li class="nav-item">
-        {% if is_granted('ROLE_ADMIN') %}
-            <a class="nav-link js-scroll-trigger" href="{{  path('app_logout') }}">Déconnexion</a>
-        {% else %}
-            <a class="nav-link js-scroll-trigger" href="{{  path('app_login') }}">Connexion</a>
-        {% endif %}
-    </li>
+    <li class="nav-item">{% if is_granted('ROLE_ADMIN') %}<a class="nav-link js-scroll-trigger" href="{{  path('app_logout') }}">Déconnexion</a>{% else %}<a class="nav-link js-scroll-trigger" href="{{  path('app_login') }}">Connexion</a>{% endif %}</li>
 {% endblock %}
 
 {% block contenu %}
@@ -30,15 +24,11 @@
         <div class="collapse" id="collapse{{ item.idlistephp }}">
         <p>{{ item.thetext|nl2br }}</p>
         <h6>Liens externes</h6>
-        <ul>
-            {% for link in item.Linkphplinkphp %}
-            <li>
-                <a href="{{ link.theurl }}" title="{{ link.thedesc }}" rel="nofollow" target="_blank">{{ link.thetitle }}</a> - {{ link.thedesc }}
-            </li>
+        <ul>{% for link in item.Linkphplinkphp %}
+            <li><a href="{{ link.theurl }}" title="{{ link.thedesc }}" rel="nofollow" target="_blank">{{ link.thetitle }}</a> - {{ link.thedesc }}</li>
             {% else %}
                 <li>Pas de liens</li>
-            {% endfor %}
-        </ul>
+            {% endfor %}</ul>
         </div>
     {% else %}
         <h3>Pas encore de fonctions</h3>
