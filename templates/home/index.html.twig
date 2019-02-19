@@ -26,6 +26,8 @@
         <hr id="link{{ item.idlistephp }}"><br>
         <h3 title="{{ item.thedesc }}">{{ item.thetitle }}</h3>
         <p class="lead">{{ item.thedesc }}</p>
+        <p><a class="btn btn-dark cache" data-toggle="collapse" href="#collapse{{ item.idlistephp }}" role="button" aria-expanded="false" aria-controls="collapse{{ item.idlistephp }}">Lire la suite</a></p>
+        <div class="collapse" id="collapse{{ item.idlistephp }}">
         <p>{{ item.thetext|nl2br }}</p>
         <h6>Liens externes</h6>
         <ul>
@@ -37,7 +39,7 @@
                 <li>Pas de liens</li>
             {% endfor %}
         </ul>
-
+        </div>
     {% else %}
         <h3>Pas encore de fonctions</h3>
     {% endfor %}
