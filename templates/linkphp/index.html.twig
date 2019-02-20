@@ -18,7 +18,10 @@
 {% block titre %}Admin - Liens externes{% endblock %}
 {% block stitre %}<p class="lead">Liste des liens externes</p>{% endblock %}
 {% block contenu %}
-    <a href="{{ path('linkphp_new') }}">Créez un nouveau lien</a>
+    <a href="{{ path('linkphp_new') }}">Créez un nouveau lien</a><br><br>
+<div class="pagerfanta">
+                {{ pagerfanta(my_pager, 'twitter_bootstrap4',{'prev_message' : 'Page précédente', 'next_message' : 'Page suivante'}) }}
+            </div>
     <table class="table">
         <thead>
             <tr>
@@ -30,7 +33,8 @@
             </tr>
         </thead>
         <tbody>
-        {% for linkphp in linkphps %}
+
+        {% for linkphp in my_pager.currentPageResults %}
             <tr>
                 <td>{{ linkphp.idlinkphp }}</td>
                 <td>{{ linkphp.thetitle }}</td>
@@ -41,11 +45,15 @@
                     <a href="{{ path('linkphp_edit', {'idlinkphp': linkphp.idlinkphp}) }}">Modifier</a>
                 </td>
             </tr>
+
         {% else %}
             <tr>
                 <td colspan="5">Pas encore de liens</td>
             </tr>
         {% endfor %}
+        <tr><td colspan="5"><div class="pagerfanta">
+                    {{ pagerfanta(my_pager, 'twitter_bootstrap4',{'prev_message' : 'Page précédente', 'next_message' : 'Page suivante'}) }}
+                </div></td> </tr>
         </tbody>
     </table>
 
