@@ -8,6 +8,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Pagerfanta\Adapter\DoctrineORMAdapter;
+use Pagerfanta\Pagerfanta;
 
 /**
  * @Route("/admin/linkphp")
@@ -19,12 +21,37 @@ class LinkphpController extends AbstractController
      */
     public function index(): Response
     {
-        $linkphps = $this->getDoctrine()
+
+        /*$linkphps = $this->getDoctrine()
             ->getRepository(Linkphp::class)
-            ->findAll();
+            ->findAll();*/
+
+        /*
+         * doc for pagination:
+         * https://github.com/whiteoctober/Pagerfanta/blob/master/README.md
+         * https://github.com/whiteoctober/WhiteOctoberPagerfantaBundle
+         *
+         * doc query builder
+         * https://symfony.com/doc/3.3/doctrine.html
+         */
+
+        $queryBuilder = $this->getDoctrine()->getManager()->createQueryBuilder()
+            ->select('u')
+            ->from(Linkphp::class, 'u');
+
+
+        $adapter = new DoctrineORMAdapter($queryBuilder);
+        $pagerfanta = new Pagerfanta($adapter);
+
+        $pagerfanta->setMaxPerPage(8);
+
+        if (isset($_GET["page"])&& ctype_digit($_GET["page"])) {
+            $pagerfanta->setCurrentPage($_GET["page"]);
+        }
+
 
         return $this->render('linkphp/index.html.twig', [
-            'linkphps' => $linkphps,
+             'my_pager' => $pagerfanta
         ]);
     }
 
