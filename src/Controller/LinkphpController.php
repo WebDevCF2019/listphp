@@ -43,12 +43,15 @@ class LinkphpController extends AbstractController
         $adapter = new DoctrineORMAdapter($queryBuilder);
         $pagerfanta = new Pagerfanta($adapter);
 
+        $pagerfanta->setMaxPerPage(8);
+
         if (isset($_GET["page"])) {
             $pagerfanta->setCurrentPage($_GET["page"]);
         }
 
+
         return $this->render('linkphp/index.html.twig', [
-             'my_pager' => $pagerfanta,
+             'my_pager' => $pagerfanta
         ]);
     }
 
