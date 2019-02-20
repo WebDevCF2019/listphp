@@ -30,7 +30,7 @@
             </tr>
         </thead>
         <tbody>
-        {% for linkphp in linkphps %}
+        {% for linkphp in my_pager.currentPageResults %}
             <tr>
                 <td>{{ linkphp.idlinkphp }}</td>
                 <td>{{ linkphp.thetitle }}</td>
@@ -41,11 +41,15 @@
                     <a href="{{ path('linkphp_edit', {'idlinkphp': linkphp.idlinkphp}) }}">Modifier</a>
                 </td>
             </tr>
+
         {% else %}
             <tr>
                 <td colspan="5">Pas encore de liens</td>
             </tr>
         {% endfor %}
+        <tr><td colspan="5"><div class="pagerfanta">
+                    {{ pagerfanta(my_pager, 'twitter_bootstrap4') }}
+                </div></td> </tr>
         </tbody>
     </table>
 

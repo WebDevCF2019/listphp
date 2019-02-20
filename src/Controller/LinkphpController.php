@@ -8,6 +8,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Pagerfanta\Adapter\DoctrineORMAdapter;
+use Pagerfanta\Pagerfanta;
 
 /**
  * @Route("/admin/linkphp")
@@ -19,12 +21,23 @@ class LinkphpController extends AbstractController
      */
     public function index(): Response
     {
+
         $linkphps = $this->getDoctrine()
             ->getRepository(Linkphp::class)
             ->findAll();
 
+        $queryBuilder = $this->getDoctrine()->getManager()->createQueryBuilder()
+            ->select('u')
+            ->from(Linkphp::class, 'u')
+            ->getQuery();
+        $products = $queryBuilder->getResult();
+
+
+        $adapter = new DoctrineORMAdapter($queryBuilder);
+        $pagerfanta = new Pagerfanta($adapter);
+
         return $this->render('linkphp/index.html.twig', [
-            'linkphps' => $linkphps,
+            'linkphps' => $products, 'my_pager' => $pagerfanta,
         ]);
     }
 
