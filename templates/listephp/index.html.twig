@@ -18,7 +18,10 @@
 {% block titre %}Admin - fonctions{% endblock %}
 {% block stitre %}<p class="lead">Administration des fonctions - Accueil</p>{% endblock %}
 {% block contenu %}
-    <a href="{{ path('listephp_new') }}">Créez une nouvelle fonction</a>
+    <a href="{{ path('listephp_new') }}">Créez une nouvelle fonction</a><br><br>
+    <div class="pagerfanta">
+        {{ pagerfanta(my_pager, 'twitter_bootstrap4',{'prev_message' : 'Page précédente', 'next_message' : 'Page suivante'}) }}
+    </div>
     <table class="table">
         <thead>
             <tr>
@@ -30,7 +33,7 @@
             </tr>
         </thead>
         <tbody>
-        {% for listephp in listephps %}
+        {% for listephp in my_pager %}
             <tr>
                 <td>{{ listephp.idlistephp }}</td>
                 <td>{{ listephp.thetitle }}</td>
@@ -46,6 +49,9 @@
                 <td colspan="6">Pas encore de fonctions</td>
             </tr>
         {% endfor %}
+        <tr><td colspan="6"><div class="pagerfanta">
+                    {{ pagerfanta(my_pager, 'twitter_bootstrap4',{'prev_message' : 'Page précédente', 'next_message' : 'Page suivante'}) }}
+                </div></td> </tr>
         </tbody>
     </table>
 
