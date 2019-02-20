@@ -22,22 +22,33 @@ class LinkphpController extends AbstractController
     public function index(): Response
     {
 
-        $linkphps = $this->getDoctrine()
+        /*$linkphps = $this->getDoctrine()
             ->getRepository(Linkphp::class)
-            ->findAll();
+            ->findAll();*/
+
+        /*
+         * doc for pagination:
+         * https://github.com/whiteoctober/Pagerfanta/blob/master/README.md
+         * https://github.com/whiteoctober/WhiteOctoberPagerfantaBundle
+         *
+         * doc query builder
+         * https://symfony.com/doc/3.3/doctrine.html
+         */
 
         $queryBuilder = $this->getDoctrine()->getManager()->createQueryBuilder()
             ->select('u')
-            ->from(Linkphp::class, 'u')
-            ->getQuery();
-        $products = $queryBuilder->getResult();
+            ->from(Linkphp::class, 'u');
 
 
         $adapter = new DoctrineORMAdapter($queryBuilder);
         $pagerfanta = new Pagerfanta($adapter);
 
+        if (isset($_GET["page"])) {
+            $pagerfanta->setCurrentPage($_GET["page"]);
+        }
+
         return $this->render('linkphp/index.html.twig', [
-            'linkphps' => $products, 'my_pager' => $pagerfanta,
+             'my_pager' => $pagerfanta,
         ]);
     }
 
