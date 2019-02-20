@@ -45,7 +45,7 @@ class LinkphpController extends AbstractController
 
         $pagerfanta->setMaxPerPage(8);
 
-        if (isset($_GET["page"])) {
+        if (isset($_GET["page"])&& ctype_digit($_GET["page"])) {
             $pagerfanta->setCurrentPage($_GET["page"]);
         }
 
