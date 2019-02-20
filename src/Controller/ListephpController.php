@@ -8,7 +8,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
+use Pagerfanta\Adapter\DoctrineORMAdapter;
+use Pagerfanta\Pagerfanta;
 /**
  * @Route("/admin/listephp")
  */
@@ -19,12 +20,25 @@ class ListephpController extends AbstractController
      */
     public function index(): Response
     {
-        $listephps = $this->getDoctrine()
+       /* $listephps = $this->getDoctrine()
             ->getRepository(Listephp::class)
             ->findAll();
+        */
+        $queryBuilder = $this->getDoctrine()->getManager()->createQueryBuilder()
+            ->select('u')
+            ->from(Listephp::class, 'u');
 
+
+        $adapter = new DoctrineORMAdapter($queryBuilder);
+        $pagerfanta = new Pagerfanta($adapter);
+
+        $pagerfanta->setMaxPerPage(8);
+
+        if (isset($_GET["page"])&& ctype_digit($_GET["page"])) {
+            $pagerfanta->setCurrentPage($_GET["page"]);
+        }
         return $this->render('listephp/index.html.twig', [
-            'listephps' => $listephps,
+            'my_pager' => $pagerfanta
         ]);
     }
 
