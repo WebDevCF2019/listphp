@@ -14,7 +14,10 @@
     </li>
     <li class="nav-item">{% if is_granted('ROLE_ADMIN') %}<a class="nav-link js-scroll-trigger" href="{{  path('app_logout') }}">Déconnexion</a>{% else %}<a class="nav-link js-scroll-trigger" href="{{  path('app_login') }}">Connexion</a>{% endif %}</li>
 {% endblock %}
-
+{% block stitre %}{{ parent() }}<hr>{% for item in liste %}<a class="js-scroll-trigger" href="#link{{ item.idlistephp }}">{{ item.thetitle }}</a>{% if not loop.last %} | {% endif %}
+{% else %}
+    Pas encore de fonctions PHP
+{% endfor %}{% endblock %}
 {% block contenu %}
     {% for item in liste %}
         <hr id="link{{ item.idlistephp }}"><br>
