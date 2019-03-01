@@ -32,7 +32,7 @@ class ListephpController extends AbstractController
         $adapter = new DoctrineORMAdapter($queryBuilder);
         $pagerfanta = new Pagerfanta($adapter);
 
-        $pagerfanta->setMaxPerPage(8);
+        $pagerfanta->setMaxPerPage(10);
 
         if (isset($_GET["page"])&& ctype_digit($_GET["page"])) {
             $pagerfanta->setCurrentPage($_GET["page"]);
