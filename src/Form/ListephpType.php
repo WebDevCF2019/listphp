@@ -12,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 
 class ListephpType extends AbstractType
 {
@@ -20,7 +21,7 @@ class ListephpType extends AbstractType
         $builder
             ->add('thetitle',TextType::class,['attr' => ['class' => 'form-control']])
             ->add('thedesc',TextType::class,['attr' => ['class' => 'form-control']])
-            ->add('thetext',TextareaType::class,['attr' => ['class' => 'form-control']])
+            ->add('thetext',CKEditorType::class,['attr' => ['class' => 'form-control']])
             ->add('thedate',DateTimeType::class,['attr' => ['class' => 'form-control']])
             ->add('userlistuserlist',EntityType::class,['class' => Userlist::class,'choice_label' => 'thelogin'])
             ->add('linkphplinkphp',EntityType::class,['class'=>Linkphp::class,'choice_label' => 'thetitle','expanded' => true,'multiple'=>true,'attr' => ['class' => 'form-row col-auto']])

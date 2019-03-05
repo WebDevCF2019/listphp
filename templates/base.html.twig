@@ -5,9 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>{% block title %}Titre{% endblock %}</title>
         {% block stylesheets %}
-            <link href="https://listphp.webdev-cf2m.be/css/bootstrap.min.css" rel="stylesheet">
-            <link href="https://listphp.webdev-cf2m.be/css/scrolling-nav.css" rel="stylesheet">
-            <link href="https://listphp.webdev-cf2m.be/css/app.css" rel="stylesheet">
+            <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+            <link href="{{ asset('css/scrolling-nav.css') }}" rel="stylesheet">
+            <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         {% endblock %}
     </head>
     <body id="page-top">
@@ -16,10 +16,10 @@
     {% endblock %}
         {% block javascripts %}
             <!-- JavaScript -->
-            <script src="https://listphp.webdev-cf2m.be/js/jquery.min.js"></script>
-            <script src="https://listphp.webdev-cf2m.be/js/bootstrap.bundle.min.js"></script>
-            <script src="https://listphp.webdev-cf2m.be/js/jquery.easing.min.js"></script>
-            <script src="https://listphp.webdev-cf2m.be/js/scrolling-nav.js"></script>
+            <script src="{{ asset('js/jquery.min.js') }}"></script>
+            <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+            <script src="{{ asset('js/jquery.easing.min.js') }}"></script>
+            <script src="{{ asset('js/scrolling-nav.js')}}'"></script>
         {% endblock %}
     <!-- Matomo -->
     <script type="text/javascript">
