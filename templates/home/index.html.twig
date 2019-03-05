@@ -14,7 +14,7 @@
     </li>
     <li class="nav-item">{% if is_granted('ROLE_ADMIN') %}<a class="nav-link js-scroll-trigger" href="{{  path('app_logout') }}">Déconnexion</a>{% else %}<a class="nav-link js-scroll-trigger" href="{{  path('app_login') }}">Connexion</a>{% endif %}</li>
 {% endblock %}
-{% block stitre %}{{ parent() }}<hr>{% for item in liste %}<a class="js-scroll-trigger" href="#link{{ item.idlistephp }}">{{ item.thetitle }}</a>{% if not loop.last %} | {% endif %}
+{% block stitre %}{{ parent() }}<hr>{% for item in liste %}<a class="js-scroll-trigger" title="{{ item.thetitle }} | {{ item.thedesc }}" href="#link{{ item.idlistephp }}">{{ item.thetitle }}</a>{% if not loop.last %} | {% endif %}
 {% else %}
     Pas encore de fonctions PHP
 {% endfor %}{% endblock %}
@@ -23,7 +23,7 @@
         <hr id="link{{ item.idlistephp }}"><br>
         <h3 title="{{ item.thedesc }}">{{ item.thetitle }}</h3>
         <p class="lead">{{ item.thedesc }}</p>
-        <p><a class="btn btn-dark cache" data-toggle="collapse" href="#collapse{{ item.idlistephp }}" role="button" aria-expanded="false" aria-controls="collapse{{ item.idlistephp }}">Lire la suite</a></p>
+        <p><a class="btn btn-dark" data-toggle="collapse" href="#collapse{{ item.idlistephp }}" role="button" aria-expanded="false" aria-controls="collapse{{ item.idlistephp }}" onClick = "this.style.display= 'none';">Lire la suite</a></p>
         <div class="collapse" id="collapse{{ item.idlistephp }}">
         <p>{{ item.thetext|nl2br }}</p>
         <h6>Liens externes</h6>

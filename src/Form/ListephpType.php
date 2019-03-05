@@ -23,7 +23,7 @@ class ListephpType extends AbstractType
             ->add('thetext',TextareaType::class,['attr' => ['class' => 'form-control']])
             ->add('thedate',DateTimeType::class,['attr' => ['class' => 'form-control']])
             ->add('userlistuserlist',EntityType::class,['class' => Userlist::class,'choice_label' => 'thelogin'])
-            ->add('linkphplinkphp',EntityType::class,['class'=>Linkphp::class,'choice_label' => 'thetitle','expanded' => true,'multiple'=>true])
+            ->add('linkphplinkphp',EntityType::class,['class'=>Linkphp::class,'choice_label' => 'thetitle','expanded' => true,'multiple'=>true,'attr' => ['class' => 'form-row col-auto']])
         ;
     }
 
