@@ -25,3 +25,15 @@
 
     {{ include('listephp/_delete_form.html.twig') }}
 {% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    {# templates/listephp/edit.html.twig #}
+    {# Javascript Block #}
+    <script src="{{ asset('bundles/fosckeditor/adapters/jquery.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('bundles/fosckeditor/ckeditor.js') }}" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function() {
+            $('textarea.ckeditor').ckeditor();
+        });
+    </script>
+{% endblock %}
