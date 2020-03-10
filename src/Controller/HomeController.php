@@ -16,7 +16,7 @@ class HomeController extends AbstractController
     {
         $listephps = $this->getDoctrine()
             ->getRepository(Listephp::class)
-            ->findAll();
+            ->findBy([],['thetitle'=>"ASC"]);
 
         return $this->render('home/index.html.twig', [
             'liste' => $listephps,

@@ -26,7 +26,9 @@ class ListephpController extends AbstractController
         */
         $queryBuilder = $this->getDoctrine()->getManager()->createQueryBuilder()
             ->select('u')
-            ->from(Listephp::class, 'u');
+            ->from(Listephp::class, 'u')
+            ->orderBy('u.thetitle','ASC')
+        ;
 
 
         $adapter = new DoctrineORMAdapter($queryBuilder);

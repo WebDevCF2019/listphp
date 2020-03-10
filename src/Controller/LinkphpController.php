@@ -37,7 +37,9 @@ class LinkphpController extends AbstractController
 
         $queryBuilder = $this->getDoctrine()->getManager()->createQueryBuilder()
             ->select('u')
-            ->from(Linkphp::class, 'u');
+            ->from(Linkphp::class, 'u')
+            ->orderBy('u.thetitle','ASC')
+        ;
 
 
         $adapter = new DoctrineORMAdapter($queryBuilder);
